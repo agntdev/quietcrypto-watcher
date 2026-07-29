@@ -1,0 +1,12 @@
+[
+  {
+    "name": "Daily summary formats a multiple-coin watchlist",
+    "steps": [
+      { "send": { "callback": "watchlist:add" }, "expect": [{ "method": "editMessageText" }] },
+      { "send": { "callback": "watchlist:pick:BTC" }, "expect": [{ "method": "editMessageText" }] },
+      { "send": { "callback": "watchlist:add" }, "expect": [{ "method": "editMessageText" }] },
+      { "send": { "callback": "watchlist:pick:ETH" }, "expect": [{ "method": "editMessageText" }] },
+      { "send": { "callback": "summary:preview" }, "expect": [{ "method": "editMessageText" }] }
+    ]
+  }
+]

@@ -1,0 +1,9 @@
+[
+  {
+    "name": "Quiet hours can be configured",
+    "steps": [
+      { "send": { "callback": "settings:quiet" }, "expect": [{ "method": "editMessageText", "payload": { "text": "Send quiet hours as 22-7 for 10 PM to 7 AM UTC. Send off to disable them." } }] },
+      { "send": { "text": "22-7" }, "expect": [{ "method": "sendMessage", "payload": { "text": "Quiet hours are set for 22:00–7:00 UTC." } }] }
+    ]
+  }
+]

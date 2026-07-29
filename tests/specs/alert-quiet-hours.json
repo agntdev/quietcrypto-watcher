@@ -1,0 +1,19 @@
+[
+  {
+    "name": "Alerts wait through quiet hours and can be checked afterward",
+    "steps": [
+      { "send": { "callback": "watchlist:add" }, "expect": [{ "method": "editMessageText" }] },
+      { "send": { "callback": "watchlist:pick:BTC" }, "expect": [{ "method": "editMessageText" }] },
+      { "send": { "callback": "alerts:create" }, "expect": [{ "method": "editMessageText" }] },
+      { "send": { "callback": "alerts:coin:BTC" }, "expect": [{ "method": "editMessageText" }] },
+      { "send": { "callback": "alerts:type:threshold_above" }, "expect": [{ "method": "editMessageText" }] },
+      { "send": { "text": "1" }, "expect": [{ "method": "sendMessage" }] },
+      { "send": { "callback": "settings:quiet" }, "expect": [{ "method": "editMessageText" }] },
+      { "send": { "text": "0-23" }, "expect": [{ "method": "sendMessage" }] },
+      { "send": { "callback": "alerts:check" }, "expect": [{ "method": "editMessageText", "payload": { "text": "No alerts have triggered right now." } }] },
+      { "send": { "callback": "settings:quiet" }, "expect": [{ "method": "editMessageText" }] },
+      { "send": { "text": "off" }, "expect": [{ "method": "sendMessage" }] },
+      { "send": { "callback": "alerts:check" }, "expect": [{ "method": "editMessageText" }] }
+    ]
+  }
+]

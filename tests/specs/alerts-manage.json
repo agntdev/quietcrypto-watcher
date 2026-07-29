@@ -1,13 +1,13 @@
 [
   {
-    "name": "Manage Alerts",
+    "name": "Manage Alerts guides a new watchlist",
     "steps": [
       {
         "expect": [
           {
-            "method": "sendMessage",
+            "method": "editMessageText",
             "payload": {
-              "text": "Configure threshold/percent alerts"
+              "text": "Add a coin before creating an alert."
             }
           }
         ],
