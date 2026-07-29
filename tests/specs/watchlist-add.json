@@ -1,19 +1,33 @@
 [
   {
-    "name": "Add Coin",
+    "name": "Add Coin opens ticker choices",
     "steps": [
       {
         "expect": [
           {
-            "method": "sendMessage",
+            "method": "editMessageText",
             "payload": {
-              "text": "Add new coin to watchlist with validation"
+              "text": "Choose a coin, or send its ticker."
             }
           }
         ],
         "send": {
           "callback": "watchlist:add"
         }
+      }
+    ]
+  }
+  ,
+  {
+    "name": "Add Coin handles an invalid ticker",
+    "steps": [
+      {
+        "send": { "callback": "watchlist:add" },
+        "expect": [{ "method": "editMessageText", "payload": { "text": "Choose a coin, or send its ticker." } }]
+      },
+      {
+        "send": { "text": "DOG" },
+        "expect": [{ "method": "sendMessage" }]
       }
     ]
   }

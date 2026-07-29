@@ -1,19 +1,31 @@
 [
   {
-    "name": "/price",
+    "name": "/price shows an empty watchlist state",
     "steps": [
       {
         "expect": [
           {
             "method": "sendMessage",
             "payload": {
-              "text": "Check current prices for watchlist or specific ticker"
+              "text": "No coins yet — tap Add coin before checking prices."
             }
           }
         ],
         "send": {
           "text": "/price"
         }
+      }
+    ]
+  }
+  ,
+  {
+    "name": "/price suggests a supported ticker",
+    "steps": [
+      {
+        "send": { "text": "/price BTT" },
+        "expect": [
+          { "method": "sendMessage", "payload": { "text": "I couldn't find BTT. Did you mean BTC?" } }
+        ]
       }
     ]
   }
